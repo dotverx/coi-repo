@@ -1,6 +1,6 @@
 [container]
-image = "coi-repo-app"
-alias = "repo-app"
+image = FixMeInConfigToml
+alias = FixMeInConfigToml
 persistent = true
 
 [container.build]

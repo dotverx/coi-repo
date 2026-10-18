@@ -30,6 +30,28 @@ incus --project default \
   nvidia.driver.capabilities=all
 ```
 
+### set name and alias
+in this repo `.coi/config.toml`
+
+```toml
+[container]
+image = FixMeInConfigToml
+alias = FixMeInConfigToml
+```
+
+change to custom names that dont collide with existing local ones
+
+```toml
+[container]
+image = "custom-app-image"
+alias = "app"
+```
+
+### build a container
+```sh
+coi build
+```
+
 ### run a container with bash
 ```sh
 coi shell --debug --slot 1

@@ -1,0 +1,11 @@
+[container]
+image = "coi-repo-app"
+alias = "repo-app"
+persistent = true
+
+[container.build]
+base = "coi-default"
+script = "build.sh"
+
+[defaults.environment]
+HOME = "/home/code"

@@ -16,8 +16,19 @@ sudo apt-get update
 sudo apt-get install -y nvidia-container-toolkit-base
 rm -f /etc/dpkg/dpkg.cfg.d/00-build-speed
 
-sudo mkdir -p /var/run/cdi
-sudo nvidia-ctk cdi generate --output=/var/run/cdi/nvidia.yaml
+sudo install -d -m 0755 /etc/systemd/system/nvidia-cdi-refresh.service.d
+sudo tee /etc/systemd/system/nvidia-cdi-refresh.service.d/20-incus.conf >/dev/null <<'EOF'
+[Unit]
+ConditionPathExists=/dev/nvidiactl
+Before=docker.service containerd.service
+[Service]
+ExecCondition=
+ExecStart=
+ExecStart=/usr/bin/nvidia-ctk cdi generate --output=/var/run/cdi/nvidia.yaml
+EOF
+sudo systemctl daemon-reload
+sudo systemctl enable nvidia-cdi-refresh.service nvidia-cdi-refresh.path
+sudo systemctl restart nvidia-cdi-refresh.service
 }
 nvidia-docker
 

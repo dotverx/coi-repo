@@ -1,7 +1,7 @@
 [container]
 image = FixMeInConfigToml
 alias = FixMeInConfigToml
-persistent = true
+persistent = false
 
 [container.build]
 base = "coi-default"

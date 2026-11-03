@@ -13,6 +13,8 @@ web_search = "live"
 animations = false
 alternate_screen = "never"
 vim_mode_default = true
+status_line = ["model-with-reasoning", "current-dir", "thread-name", "git-branch", "branch-changes", "context-used", "weekly-limit", "hostname"]
+status_line_use_colors = true
 
 [analytics]
 enabled = false
